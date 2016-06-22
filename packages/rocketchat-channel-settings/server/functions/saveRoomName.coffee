@@ -4,7 +4,7 @@ RocketChat.saveRoomName = (rid, name) ->
 
 	room = RocketChat.models.Rooms.findOneById rid
 
-	if room.t not in ['c', 'p']
+	if room.t not in ['c', 'p'] # TODO
 		throw new Meteor.Error 'error-not-allowed', 'Not allowed', { function: 'RocketChat.saveRoomName' }
 
 	unless RocketChat.authz.hasPermission(Meteor.userId(), 'edit-room', rid)
